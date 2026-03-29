@@ -49,7 +49,7 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             -- Attach capabilities to your servers
-            for _, server in ipairs({ "pyright", "lua_ls", "clangd" }) do
+            for _, server in ipairs({ "pyright", "lua_ls", "clangd", "gopls", "ts_ls" }) do
                 if vim.lsp.config[server] then
                     vim.lsp.config[server].capabilities = capabilities
                 end
