@@ -6,6 +6,7 @@ setopt auto_cd
 
 export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 # Addons
 eval "$(starship init zsh)"
