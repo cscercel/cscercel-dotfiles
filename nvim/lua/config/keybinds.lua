@@ -20,3 +20,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- Source file
 vim.keymap.set("n", "<leader><leader>", ":so %<CR>")
+
+-- The best thing ever
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
