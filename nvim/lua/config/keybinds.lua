@@ -17,6 +17,8 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Apparently I need this
 vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Source file
 vim.keymap.set("n", "<leader><leader>", ":so %<CR>")
