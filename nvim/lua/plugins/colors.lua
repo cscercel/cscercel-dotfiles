@@ -1,15 +1,9 @@
 return {
     {
-        "catppuccin/nvim",
-        lazy = false,
-        name = "catppuccin",
-        priority = 1000,
-
+        "rose-pine/neovim",
+        name = "rose-pine",
         config = function()
-            require("catppuccin").setup({
-                transparent_background = false,
-            })
-            vim.cmd.colorscheme "catppuccin-mocha"
+            vim.cmd("colorscheme rose-pine")
         end
     },
 
@@ -19,7 +13,7 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
         opts = {
-            theme = 'catppuccin',
+            theme = 'rose-pine',
         },
     },
 }
