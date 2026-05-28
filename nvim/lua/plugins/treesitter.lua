@@ -11,8 +11,6 @@ return {
 	        autotage = { enable = true },
 	        ensure_installed = {
 		        "lua",
-		        "c",
-		        "cpp",
 		        "python",
 		        "toml",
 		        "yaml",
@@ -23,7 +21,6 @@ return {
 		        "gitignore",
 		        "markdown",
 		        "markdown_inline",
-		        "arduino",
                 "javascript",
                 "jsdoc",
                 "typescript",

@@ -1,14 +1,15 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-
+        "rose-pine/neovim",
+        name = "rose-pine",
         config = function()
-            require("catppuccin").setup({
-                transparent_background = false,
+            require('rose-pine').setup({
+                disable_background = true,
+                styles = {
+                    italic = false,
+                },
             })
-            vim.cmd.colorscheme "catppuccin-mocha"
+            vim.cmd("colorscheme rose-pine-moon")
         end
     },
 
@@ -17,8 +18,12 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
-        opts = {
-            theme = "catppuccin",
-        },
+        config = function()
+            require('lualine').setup({
+                options = {
+                    theme = "onedark",
+                },
+            })
+        end
     },
 }

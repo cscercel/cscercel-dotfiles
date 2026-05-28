@@ -11,7 +11,6 @@ return {
         ensure_installed = {
           "pyright",
           "lua_ls",
-          "clangd",
           "gopls",
           "ts_ls",
         },
@@ -51,10 +50,6 @@ return {
         },
       }
 
-      vim.lsp.config["clangd"] = {
-        on_attach = on_attach,
-      }
-
       vim.lsp.config["gopls"] = {
         on_attach = on_attach,
       }
@@ -66,7 +61,6 @@ return {
       -- start servers automatically when opening matching filetypes
       vim.lsp.enable("pyright")
       vim.lsp.enable("lua_ls")
-      vim.lsp.enable("clangd")
       vim.lsp.enable("gopls")
       vim.lsp.enable("ts_ls")
 
