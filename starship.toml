@@ -1,9 +1,17 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
+
 [python]
 detect_extensions = []
 detect_files = []
 detect_folders = [".venv"]
+python_binary = ".venv/bin/python"
 
 [cmd_duration]
+disabled = true
+
+[package]
 disabled = true
