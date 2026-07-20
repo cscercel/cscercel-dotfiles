@@ -1,17 +1,21 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+format = """
+$character\
+$directory\
+$git_branch\
+$git_status"""
+
+add_newline = false
 
 [character]
-success_symbol = '[➜](bold green) '
-error_symbol = '[✗](bold red) '
+success_symbol = "[➜](bold green) "
+error_symbol = "[➜](bold red) "
 
-[python]
-detect_extensions = []
-detect_files = []
-detect_folders = [".venv"]
-python_binary = ".venv/bin/python"
+[directory]
+truncation_length = 1
 
-[cmd_duration]
-disabled = true
+[git_branch]
+symbol = 'git'
+format = '[$symbol:\([$branch](bold red)\)](bold blue) '
 
-[package]
-disabled = true
+[git_status]
+style = "bold yellow"
