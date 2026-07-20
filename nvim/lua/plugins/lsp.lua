@@ -51,7 +51,10 @@ return {
       }
 
       vim.lsp.config["gopls"] = {
-        on_attach = on_attach,
+        on_attach = function(client, bufnr)
+            client.server_capabilities.semanticTokensProvider = nil
+            on_attach(client, bufnr)
+        end,
       }
 
       vim.lsp.config["ts_ls"] = {

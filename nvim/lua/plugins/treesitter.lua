@@ -36,12 +36,21 @@ return {
                 "vimdoc",
             }
 
-            vim.defer_fn(function()
-                local status, ts = pcall(require, "nvim-treesitter")
-                if status and ts.install then
-                    ts.install(parsers)
-                end
-            end, 0)
+            local ok, ts = pcall(require, "nvim-treesitter")
+            if ok and ts.install then
+                ts.install(parsers)
+            end
+
+            -- Neovim 0.12 bug: the bundled markdown query's conceal_lines
+            -- predicate on fenced_code_block_delimiter crashes the highlighter.
+            -- Override just that capture to drop the crashing directive.
+            -- Tracking: nvim-treesitter/nvim-treesitter#8618
+            vim.treesitter.query.set("markdown", "highlights", [[
+                (fenced_code_block
+                  (fenced_code_block_delimiter) @punctuation.delimiter)
+                (fenced_code_block
+                  (info_string (language) @label))
+            ]])
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = parsers,
