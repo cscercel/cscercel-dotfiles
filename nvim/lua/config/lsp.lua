@@ -7,14 +7,3 @@ vim.diagnostic.config({
 })
 
 vim.diagnostic.enable(false)
-
--- Call only when needed
-vim.keymap.set("n", "<leader>d", function()
-    if vim.diagnostic.is_enabled() then
-        vim.diagnostic.enable(false)
-        vim.notify("Diagnostics Hidden", vim.log.levels.INFO)
-    else
-        vim.diagnostic.enable(true)
-        vim.notify("Diagnostics Fetched", vim.log.levels.INFO)
-    end
-end, { desc = "Toggle manual LSP diagnostics" })
