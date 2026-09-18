@@ -13,4 +13,4 @@ confirm-close-surface = false
 bell-features = false
 
 # Theme
-theme = TokyoNight
+theme = tokyo-night-custom
