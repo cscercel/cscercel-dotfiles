@@ -13,4 +13,5 @@ confirm-close-surface = false
 bell-features = false
 
 # Theme
+background = #090B10
 theme = tokyo-night-custom
