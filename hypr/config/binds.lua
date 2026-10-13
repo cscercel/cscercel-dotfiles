@@ -165,3 +165,7 @@ hl.bind(mainMod .. " + CONTROL + mouse_down", hl.dsp.focus({ workspace = "m+1" }
 -- Special workspace (scratchpad)
 hl.bind(mainMod .. " + SHIFT + U", hl.dsp.window.move({ workspace = "special" }))
 hl.bind(mainMod .. " + U", hl.dsp.workspace.toggle_special())
+
+-- Gaming workspace
+hl.bind(mainMod .. " + G", hl.dsp.focus({ workspace = "name:gaming" }))
+hl.bind(mainMod .. " + SHIFT + G", hl.dsp.window.move({ workspace = "name:gaming" }))
