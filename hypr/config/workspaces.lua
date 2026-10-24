@@ -10,6 +10,7 @@ hl.workspace_rule({ workspace = "6", monitor = MONITOR1, default = true, persist
 hl.workspace_rule({ workspace = "7", monitor = MONITOR1, default = true, persistent = true })
 hl.workspace_rule({ workspace = "8", monitor = MONITOR1, default = true, persistent = true })
 hl.workspace_rule({ workspace = "9", monitor = MONITOR1, default = true, persistent = true })
+hl.workspace_rule({ workspace = "10", monitor = MONITOR1, default = true, persistent = true })
 -- hl.workspace_rule({ workspace = "6", monitor = MONITOR2, default = true, persistent = true })
 
 -- For other layouts such as scrolling, see example below
