@@ -18,5 +18,5 @@ cursor-style = block
 cursor-style-blink = false
 
 # Theme
-background = #090B10
+background = #181616
 theme = tokyo-night-custom
