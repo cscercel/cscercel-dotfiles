@@ -9,7 +9,7 @@ hl.config({
         resize_on_border = false,
         col = {
             active_border = {
-                colors = { CACHYLRED, CACHYLRED },
+                colors = { CACHYMRED, CACHYMRED },
                 angle = 45,
             },
             inactive_border = CACHYBLANK,
@@ -17,14 +17,14 @@ hl.config({
     },
     group = {
         col = {
-            border_active = CACHYLRED,
+            border_active = CACHYMRED,
             border_inactive = CACHYBLANK,
             border_locked_active = CACHYDYELLOW,
             border_locked_inactive = CACHYBLANK,
         },
         groupbar = {
             col = {
-                active = CACHYLRED,
+                active = CACHYMRED,
                 inactive = CACHYBLANK,
                 locked_active = CACHYDYELLOW,
                 locked_inactive = CACHYBLANK,
