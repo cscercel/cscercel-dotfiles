@@ -18,5 +18,4 @@ cursor-style = block
 cursor-style-blink = false
 
 # Theme
-background = #181616
-theme = tokyo-night-custom
+theme = Kanagawa Dragon
