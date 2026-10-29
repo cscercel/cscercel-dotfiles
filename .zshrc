@@ -27,7 +27,7 @@ eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height 50% --tmux bottom,50% --layout default --border top'
 export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
-export BAT_THEME="OneHalfDark"
+export BAT_THEME="Rose-Pine-Moon-Dragon"
 
 # Aliases
 alias vim="nvim"
