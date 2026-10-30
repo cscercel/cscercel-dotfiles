@@ -1,10 +1,10 @@
 # Font
-font-family = "JetBrainsMonoNL Nerd Font Mono"
+font-family = "IoskeleyMonoTerm Nerd Font Mono"
 font-size = 11
 
 # Window Padding
-window-padding-x = 2
-window-padding-y = 2
+window-padding-x = 4
+window-padding-y = 4
 
 # Disable close confirmation
 confirm-close-surface = false

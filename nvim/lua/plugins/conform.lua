@@ -17,6 +17,7 @@ return {
                 elixir = { "mix" },
                 heex = { "mix" },
             },
+            notify_no_formatters = false,
         })
     end,
 }
