@@ -25,6 +25,7 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 source <(fzf --zsh)
+export FZF_TMUX_OPTS="-d 50%"
 export FZF_DEFAULT_OPTS='--height 50% --tmux bottom,50% --layout default --border top'
 export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
 export BAT_THEME="Rose-Pine-Moon-Dragon"
@@ -42,4 +43,4 @@ alias lta='lsd -a --tree'
 bindkey -s '^f' 'tmux-sessionizer\n'
 
 # Plugins
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
