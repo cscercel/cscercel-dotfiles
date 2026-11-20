@@ -9,8 +9,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-export EDITOR="nvim"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 export NVM_DIR="$HOME/.nvm"

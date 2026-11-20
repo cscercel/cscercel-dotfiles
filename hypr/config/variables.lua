@@ -3,7 +3,7 @@
 TERMINAL        = "ghostty"
 FILE_MANAGER    = "dolphin"
 BROWSER         = "zen-browser"
-EDITOR          = "gnome-text-editor --new-window"
+EDITOR          = "emacsclient -c -a ''"
 CALCULATOR      = "gnome-calculator"
 
 -- Monitors
