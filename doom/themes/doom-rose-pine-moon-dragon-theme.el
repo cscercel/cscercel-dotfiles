@@ -1,4 +1,4 @@
-;;; doom-rose-pine-moon-dragon-theme.el --- Rosé Pine Moon + Kanagawa Dragon Ghostty port -*- lexical-binding: t; -*-
+;;; doom-rose-pine-moon-dragon-theme.el --- Rosé Pine Moon syntax on Kanagawa Dragon base -*- lexical-binding: t; -*-
 ;;; Code:
 
 (require 'doom-themes)
@@ -30,7 +30,7 @@
 
 ;;; Theme definition
 (def-doom-theme doom-rose-pine-moon-dragon
-  "A Rosé Pine Moon and Kanagawa Dragon theme based on Ghostty colors"
+  "Rosé Pine Moon syntax highlighting on a Kanagawa Dragon (Ghostty) base"
 
   ;; Main theme colors
   (
@@ -39,7 +39,10 @@
     (surface          '("#211f26"   "#211f26"   "brightblack"  ))
     (overlay          '("#393552"   "#393552"   "brightblack"  ))
     (muted            '("#6e6a86"   "#6e6a86"   "brightblack"  ))
+    ;; Ghostty/Kanagawa foreground-ish grey, kept for base7
     (subtle           '("#c5c9c5"   "#c5c9c5"   "white"        ))
+    ;; Real Rosé Pine "subtle" (operators, delimiters in rose-pine.nvim)
+    (rp-subtle        '("#908caa"   "#908caa"   "white"        ))
     (text             '("#e0def4"   "#e0def4"   "white"        ))
     (cursor-gold      '("#c8c093"   "#c8c093"   "yellow"       ))
     (love             '("#eb6f92"   "#eb6f92"   "red"          ))
@@ -88,16 +91,17 @@
     (region            overlay)
     (vertical-bar      surface)
 
-    (comments          (if doom-rose-pine-moon-dragon-brighter-comments subtle muted))
-    (doc-comments      (if doom-rose-pine-moon-dragon-brighter-comments subtle muted))
+    (comments          (if doom-rose-pine-moon-dragon-brighter-comments rp-subtle muted))
+    (doc-comments      (if doom-rose-pine-moon-dragon-brighter-comments rp-subtle muted))
 
-    (builtin           pine)
-    (constants         iris)
+    ;; Rosé Pine syntax mapping (from rose-pine.nvim)
+    (builtin           rose)
+    (constants         foam)
     (functions         rose)
     (keywords          pine)
-    (methods           foam)
-    (numbers           rose)
-    (operators         gold)
+    (methods           rose)
+    (numbers           gold)
+    (operators         rp-subtle)
     (strings           gold)
     (type              foam)
     (variables         text)
@@ -127,34 +131,56 @@
 
   ;; Base theme face overrides
   (
-    ;; Cursor & selection (matches Neovim Visual mode & Ghostty cursor)
+    ;; Cursor & selection
     (cursor
       :background cursor-gold
       :foreground base)
     ((region &override)
       :background overlay)
 
-    ;; Font lock (bold = false, italic = false)
+    ;; Font lock: classic faces (no bold, no italic)
     ((font-lock-comment-face &override)
-      :slant 'normal
-      :weight 'normal
+      :foreground comments :slant 'normal :weight 'normal
       :background (if doom-rose-pine-moon-dragon-brighter-comments (doom-blend teal base 0.07)))
-    ((font-lock-doc-face &override) :slant 'normal :weight 'normal)
-    ((font-lock-type-face &override) :slant 'normal :weight 'normal)
-    ((font-lock-builtin-face &override) :slant 'normal :weight 'normal)
-    ((font-lock-function-name-face &override) :foreground functions :slant 'normal :weight 'normal)
-    ((font-lock-keyword-face &override) :slant 'normal :weight 'normal)
-    ((font-lock-constant-face &override) :slant 'normal :weight 'normal)
-    ((font-lock-string-face &override) :slant 'normal :weight 'normal)
-    ((font-lock-variable-name-face &override) :slant 'normal :weight 'normal)
+    ((font-lock-doc-face &override)           :foreground comments  :slant 'normal :weight 'normal)
+    ((font-lock-type-face &override)          :foreground foam      :slant 'normal :weight 'normal)
+    ((font-lock-builtin-face &override)       :foreground rose      :slant 'normal :weight 'normal)
+    ((font-lock-function-name-face &override) :foreground rose      :slant 'normal :weight 'normal)
+    ((font-lock-keyword-face &override)       :foreground pine      :slant 'normal :weight 'normal)
+    ((font-lock-constant-face &override)      :foreground foam      :slant 'normal :weight 'normal)
+    ((font-lock-string-face &override)        :foreground gold      :slant 'normal :weight 'normal)
+    ((font-lock-variable-name-face &override) :foreground text      :slant 'normal :weight 'normal)
+    ((font-lock-warning-face &override)       :foreground love      :slant 'normal :weight 'normal)
+    ((font-lock-negation-char-face &override) :foreground rp-subtle :slant 'normal :weight 'normal)
+
+    ;; Font lock: Emacs 29+ faces used by tree-sitter modes
+    ;; (the equivalents of Neovim's @function.call, @property, @punctuation.*, etc.)
+    ((font-lock-function-call-face &override)    :foreground rose      :slant 'normal :weight 'normal)
+    ((font-lock-variable-use-face &override)     :foreground text      :slant 'normal :weight 'normal)
+    ((font-lock-property-name-face &override)    :foreground foam      :slant 'normal :weight 'normal)
+    ((font-lock-property-use-face &override)     :foreground foam      :slant 'normal :weight 'normal)
+    ((font-lock-number-face &override)           :foreground gold      :slant 'normal :weight 'normal)
+    ((font-lock-operator-face &override)         :foreground rp-subtle :slant 'normal :weight 'normal)
+    ((font-lock-punctuation-face &override)      :foreground rp-subtle :slant 'normal :weight 'normal)
+    ((font-lock-bracket-face &override)          :foreground muted     :slant 'normal :weight 'normal)
+    ((font-lock-delimiter-face &override)        :foreground rp-subtle :slant 'normal :weight 'normal)
+    ((font-lock-misc-punctuation-face &override) :foreground rp-subtle :slant 'normal :weight 'normal)
+    ((font-lock-escape-face &override)           :foreground pine      :slant 'normal :weight 'normal)
+    ((font-lock-regexp-face &override)           :foreground iris      :slant 'normal :weight 'normal)
+    ((font-lock-regexp-grouping-backslash &override) :foreground pine  :slant 'normal :weight 'normal)
+    ((font-lock-regexp-grouping-construct &override) :foreground iris  :slant 'normal :weight 'normal)
+    ((font-lock-preprocessor-face &override)     :foreground iris      :slant 'normal :weight 'normal)
 
     ;; Highlight line
     (hl-line
       :background surface)
 
-    ;; Line numbers
+    ;; Vertico: selected candidate matches the editor's current-line highlight
+    (vertico-current :background surface :weight 'normal)
+
+    ;; Line numbers (current line in the same gold as strings)
     ((line-number &override) :foreground muted)
-    ((line-number-current-line &override) :foreground text)
+    ((line-number-current-line &override) :foreground gold)
 
     ;; Mode line
     (mode-line
@@ -166,12 +192,12 @@
       :foreground modeline-fg-inactive
       :box (if modeline-pad `(:line-width ,modeline-pad :color ,modeline-bg-inactive)))
     (mode-line-emphasis
-      :foreground (if doom-rose-pine-moon-dragon-brighter-modeline text subtle))
+      :foreground (if doom-rose-pine-moon-dragon-brighter-modeline text rp-subtle))
 
     ;; CSS mode / scss-mode
-    (css-proprietary-property :foreground orange)
-    (css-property             :foreground green)
-    (css-selector             :foreground green)
+    (css-proprietary-property :foreground rose)
+    (css-property             :foreground foam)
+    (css-selector             :foreground foam)
 
     ;; Doom dashboard
     (doom-dashboard-banner      :foreground iris)
@@ -182,15 +208,15 @@
     (doom-dashboard-loaded      :foreground rose)
 
     ;; Doom mode line
-    (doom-modeline-bar :background green)
-    (doom-modeline-evil-emacs-state  :foreground magenta)
-    (doom-modeline-evil-normal-state :foreground green)
-    (doom-modeline-evil-visual-state :foreground magenta)
-    (doom-modeline-evil-insert-state :foreground orange)
+    (doom-modeline-bar :background pine)
+    (doom-modeline-evil-emacs-state  :foreground iris)
+    (doom-modeline-evil-normal-state :foreground pine)
+    (doom-modeline-evil-visual-state :foreground iris)
+    (doom-modeline-evil-insert-state :foreground gold)
 
     ;; Markdown mode
-    (markdown-markup-face :foreground text)
-    (markdown-header-face :weight 'normal :foreground red)
+    (markdown-markup-face :foreground muted)
+    (markdown-header-face :weight 'normal :foreground iris)
     ((markdown-code-face &override) :background surface)
 
     ;; Org mode

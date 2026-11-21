@@ -23,7 +23,7 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "IoskeleyMonoTerm Nerd Font Mono" :size 14))
+(setq doom-font (font-spec :family "IoskeleyMonoTerm Nerd Font Mono" :size 15))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -34,6 +34,8 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-rose-pine-moon-dragon)
+(setq doom-themes-enable-bold nil
+      doom-themes-enable-italic nil)
 ;; Specify both a dark and light theme, like so and Doom will choose which one
 ;; to load based on your system light/dark setting:
 ;;
@@ -81,3 +83,23 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Disable bell
+(setq ring-bell-function #'ignore
+      visible-bell nil)
+
+;; Autocomplete
+(after! cape
+    ;; only look at current buffer for dabbrev words
+    (setq cape-dabbrev-check-other-buffers nil))
+
+;; use only buffer-word completion everywhere
+(add-hook! 'after-change-major-mode-hook
+    (defun +my/buffer-words-only-h ()
+      (setq-local completion-at-point-functions (list #'cape-dabbrev))))
+
+;; Clipboard
+(setq select-enable-clipboard t)
+
+;; Project folder
+(setq projectile-project-search-path '(("~/projects" . 1)))
