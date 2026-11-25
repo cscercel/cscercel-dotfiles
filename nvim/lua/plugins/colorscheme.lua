@@ -9,6 +9,9 @@ return {
                     italic = false,
                     transparency = true,
                 },
+                highlight_groups = {
+                    CursorLineNr = { fg = "gold" },
+                },
             })
             vim.cmd("colorscheme rose-pine-moon")
         end

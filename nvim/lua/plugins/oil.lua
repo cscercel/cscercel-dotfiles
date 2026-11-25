@@ -12,6 +12,7 @@ return {
                 view_options = {
                     show_hidden = true,
                 },
+                watch_for_changes = true,
             }
 
             -- Open parent directory in current window

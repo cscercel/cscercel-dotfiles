@@ -1,9 +1,0 @@
--- Disable all diagnostics on startup
-vim.diagnostic.config({
-    virtual_text = false,
-    signs = false,
-    underline = false,
-    update_in_insert = false,
-})
-
-vim.diagnostic.enable(false)

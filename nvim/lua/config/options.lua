@@ -1,6 +1,7 @@
 -- Line numbers
 vim.opt.number = true
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 vim.opt.relativenumber = true
 
 -- Tabbing
@@ -36,3 +37,13 @@ vim.g.omni_sql_no_default_maps = 1
 
 -- Don't have `o` add a comment
 vim.opt.formatoptions:remove "o"
+
+-- Check for changes more often (tmux fix)
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "TermLeave" }, {
+    callback = function()
+        if vim.fn.mode() ~= "c" then
+            vim.cmd("checktime")
+        end
+    end,
+})
