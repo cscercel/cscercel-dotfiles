@@ -6,11 +6,11 @@ return {
         keymap = { preset = "default" },
 
         appearance = {
-          nerd_font_variant = "mono",
+            nerd_font_variant = "mono",
         },
 
         sources = {
-          default = { "buffer" },
+            default = { "buffer" },
         },
     },
 }
