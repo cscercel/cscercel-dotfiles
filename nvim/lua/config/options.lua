@@ -47,3 +47,6 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "TermLeav
         end
     end,
 })
+
+-- Remove LSP from statusline
+vim.o.statusline = "%<%f %h%w%m%r%=%l,%c%V"
